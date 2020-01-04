@@ -1,0 +1,19 @@
+@model Product
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="card" style="width: 20rem;">
+  <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+    <h3 class="card-title">
+        <a asp-controller="Product" asp-action="Details" asp-route-productId="@Model.ProductId">@Model.Name</a>
+    </h3>
+    <p class="card-text">@Model.ShortDescription.</p>
+    <p class="card-text">@Model.Count.</p>
+
+    <a class="btn btn-dark" id="cartButton" asp-controller="Basket" asp-action="AddToBasket" asp-route-productId="@Model.ProductId" class="btn btn-primary">В корзину</a>
+    <a class="btn btn-dark" id="cartButton" asp-controller="WishList" asp-action="AddToWishList" asp-route-productId="@Model.ProductId" class="btn btn-primary">star</a>
+  </div>
+</div>
+</div>
+ 

@@ -1,0 +1,26 @@
+@model HomeViewModel
+@if(User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+ 
+    <form method="post" asp-controller="Account" asp-action="LogOff">
+        <input type="submit" value="Выход" />
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Вход</a>
+    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+}
+
+@await Html.PartialAsync("Carousel")
+
+<h2>Товары недели</h2>
+<h4>Выборы клинетов - специально для вас</h4>
+
+<div class="row">
+    @foreach (var product in Model.PreferredProducts)
+    {
+        @Html.Partial("ProductSummary", product)
+    }
+</div>

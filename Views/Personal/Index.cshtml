@@ -1,0 +1,10 @@
+@model PersonalViewModel
+@using Aurora.Data.Models
+
+<div class="row marginTop">
+    @foreach (var order in Model.Orders.OrderLines)
+    {
+        <h3>@order.Amount</h3>
+        
+    }
+</div>

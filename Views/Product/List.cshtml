@@ -1,0 +1,21 @@
+@model ProductsListViewModel
+<div>
+    <form  asp-controller="Product" method="POST">
+    <input type="number" name="price" />
+    <input type="submit" asp-controller="Product" asp-action="SortGreater" value="Greater" />
+    <input type="submit" asp-controller="Product" asp-action="SortLess" value="Less" />
+    
+</form>
+    
+</div>
+
+<div class="row marginTop">
+    @foreach (var product in Model.Products)
+    {
+        @if(product.Count!=0)
+        {
+            @Html.Partial("ProductSummary", product)
+        }
+        
+    }
+</div>  
